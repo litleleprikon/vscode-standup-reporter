@@ -1,0 +1,40 @@
+language: node_js
+node_js:
+- '10.0'
+addons:
+  code_climate:
+    repo_token:
+      secure: E76JeHFmv0YyyjAVu1lPhpev1xhx0FIcEl6lRUMBc6ac/6Jw4GVrd+RwceznohKRRAX/I+bpX9F6MQJIsFpKrad0f+ioH++uXV3W1EtKtq4uwJJpNiagtkXIntEtt9Jvk2uBuiDt3YgBpGrqbo8LyLzly3K1lQNv/zoI1kahjMWlSBrdGRYo2mq3U9KmZIZ0RBn5aTRNhVcoFVOlfwb0LZhSN2mhhmfcd2lK2oIPdGTO0GtarWZ1Jt2WwA1FrYL5mfs8jEYAVhQLb0u6UqBJwTFdws/Fz0KRusyzUwP6vLvXl6CO1Qh0iKQ1NQe4G1I/9qVJ3dxRScrbNG1hSuStl0JJJnfB4/07Skm9yCfegGBjipcE3izABbGgr24vdPj3OBMuFjx5t9ip8NtLo5BHm2815thIYXXsyD8yOSXUl6lQzMkqVtOVwZubaPx0txzsa2KAZbil7D7w7DVQz535ttBmdB9XMrIdN7tcMGf+ILQR7eNUilhe1u7lJDrC4V54E+IAHjU/+AmHzpblxj4BMF7YkKPT8xjjGeEJf9RVKAsehynnqZtUu7kX5wKx89nvPWLZG09h+4g4R3kWpvbN/+pU6SSe+3qJDnj5R0v15YNnggW/stgN4iappxISgQgK0HKWzjfw/ef6A7JHmIffQKit5y1UBUbP3NXdAheJPoA=
+before_install:
+- if [ $TRAVIS_OS_NAME == "linux" ]; then export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
+  sh -e /etc/init.d/xvfb start; sleep 3; fi
+install:
+- yarn install
+- yarn vscode:prepublish
+script:
+- yarn lint:editorconfig
+- yarn lint:ts
+- npm test --silent
+after_script:
+- vsce package
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+- yarn codeclimate-test-reporter < coverage/lcov.info
+env:
+  global:
+    secure: LvG/G6dQtSSorOpPQ95oxTVz4B24FQ7mRAbVHDvc5kczvQBf9KGDf03EL/70Lq+O080PGXaUuo5zvD/nlGA/ROUCoxZE3CBpyw84phhKLAiJ2IeboIYUJUrl7zu+5jeQsUvssTcUawtt3dvdiFolkdIOVQBSkGWnbzQcWpPcMH1kNSN1NBwEZ2VzC775+Nhi+H23hiu3Ohkg7UbCuG1N5qoNSDVXaPZUY4nOF1eyLI3UUB3Uevfo2sJ9vLkHZmU9prcRNiZkqx46ahr5+J54zXOcT8PtPwCt7oB1KMRrXXaRy8BaoN5wjKPk3WnxAHY6eLiT6KzM6EnYvheJ/NHoUTefKRjzqLx0CvgwxUjtgzRNgdls9j/2kCHa3Ltn4NTRfvzpTiDju/j1+2rFoPLq2BfOgIF0w0yectIk6xxQo9ykzUJdAK4ncQT5AVQIriXgII3oYJw2Zym0ighGR03CXqeUQzuoOC886acBXqwMPT+qUD2SkYeZRUp6AMRhBDSwfP5h72pB1+zhWOEmHaxGmBHw1dQdlN9qfAmHqNhCF0KpVA/FV8157rhZB0b8eKZHCubMLI17gpr2Drlu+NLayS3/PcJvUfmk4WioKuyG5K6DYCJWQsH9x5BhZaqYHZVjQBsJ4uYaLBkKYm1YBWZIdpEVNhLufa77bsGKJlVGeKs=
+deploy:
+- provider: releases
+  api_key:
+    secure: CSgtXe/U5wCqykuiKRbZbWA58f/ArO3bHiTuHeaVcuk5AlepUrd1NJ5QC4BuQDa3ZhfYwd2B3Bw2q4RXjwOXcX2PeHaimxEWqMxfFNdFobNEiYd17xAvgDbm6RqK3co2F5kH/489pk2H0QVShXlA3WPvXW0+zIJmnx+kZSzYx9yEYrCH8lBO0gJjqn6OGt+8e+3mWufgxXqPTR1SiMRFgNFJL9SFpyDnGF5X4ZoBnH/1XwE3fr4qJm7YHtn1QfaZtyZ9jlJCcIQ2hSjluJV904G7DBJ/MoPoazj3cO7LZ21dmq8ZCIN2MnFik6iO1KV0HIN9QY8JHCZPyDU0sQL6Vfgxx0zEFh3fm/teHpNijL5wiePNxUyHZlIhoqbI+aNDUfu5zQqrDjUZQw2GzZV1SrYTpNkVdkdxCJRV58MjJTX+9RUB5XwF38rZw8sCTKOhVkQkhD8CjyD29cRp3pjL06iLkECRtJFmf4J0HbcEq6nR81D6aM4CnbgpkLpGkR6dpWgKxsbXovjJPfYZ5DygrLHrKw06750x37fz6EtMdcqEtREGqqSSOv0qFMk9jxzyul+tIJxCj5ClSO9kziljYl72fzu8tt9xx6e6/DI7g1HHSbkf5zIu2CthWMmEuD2ZUmp8Jch/KEAwqb42twU9SV7CsI3jwJmbeZeBNQ6CLwY=
+  file: "*.vsix"
+  skip_cleanup: true
+  on:
+    repo: litleleprikon/vscode-standup-reporter
+    tags: true
+- provider: script
+  script: vsce publish -p $VSCE_TOKEN
+  skip_cleanup: true
+  on:
+    repo: litleleprikon/vscode-standup-reporter
+    tags: true
