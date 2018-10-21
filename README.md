@@ -1,6 +1,11 @@
 # vscode-standup-reporter README
 
-This is the README for your extension "vscode-standup-reporter". After writing up a brief description, we recommend including the following sections.
+This extension helps you to collect your activities from Jira, Google Calendar, etc. to create daily report for scrum standup.
+---
+
+[![Build Status](https://travis-ci.org/litleleprikon/vscode-standup-reporter.svg?branch=master)](https://travis-ci.org/litleleprikon/vscode-standup-reporter)
+[![Maintainability](https://api.codeclimate.com/v1/badges/15f9815b23e43e59071b/maintainability)](https://codeclimate.com/github/litleleprikon/vscode-standup-reporter/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/15f9815b23e43e59071b/test_coverage)](https://codeclimate.com/github/litleleprikon/vscode-standup-reporter/test_coverage)
 
 ## Features
 
