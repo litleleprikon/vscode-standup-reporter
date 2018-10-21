@@ -97,7 +97,7 @@ class CoverageRunner {
         this.testsRoot = testsRoot;
         // this.endRunCallback = endRunCallback;
         this.coverageVar = `$$cov_${new Date().getTime()}$$`;
-        this.matchedFiles = []
+        this.matchedFiles = [];
         if (!options.relativeSourcePath) {
             return endRunCallback('Error - relativeSourcePath must be defined for code coverage to work');
         }

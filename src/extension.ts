@@ -7,12 +7,13 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 
-    let disposable = vscode.commands.registerCommand('extension.newRecord', async () => {
+    const disposable = vscode.commands.registerCommand('extension.newRecord', async () => {
 
         try {
-            await promisify<fs.PathLike, number | string | undefined | null>(fs.mkdir)(ReportEventContentProvider.basicPath, '0777');
+            const mkdir = await promisify<fs.PathLike, number | string | undefined | null>(fs.mkdir);
+            mkdir(ReportEventContentProvider.basicPath, '0777');
         } catch (ex) {
-            if (ex.code !== "EEXIST") {
+            if (ex.code !== 'EEXIST') {
                 await vscode.window.showErrorMessage(`Cannot create folder to store records: ${ex.message}`);
             }
         }
@@ -25,7 +26,10 @@ export function activate(context: vscode.ExtensionContext) {
 
     });
 
-    context.subscriptions.push(vscode.workspace.registerTextDocumentContentProvider(ReportEventContentProvider.scheme, new ReportEventContentProvider()));
+    context.subscriptions.push(
+        vscode.workspace.registerTextDocumentContentProvider(
+            ReportEventContentProvider.scheme,
+            new ReportEventContentProvider()));
 
     context.subscriptions.push(disposable);
 }
@@ -34,18 +38,16 @@ export function deactivate() {
 }
 
 class ReportEventContentProvider implements vscode.TextDocumentContentProvider {
-    onDidChange?: vscode.Event<vscode.Uri> | undefined;
+    public onDidChange?: vscode.Event<vscode.Uri> | undefined;
     public static readonly scheme = 'daily-standup-record';
     public static readonly basicPath = join(homedir(), '.vscode-standup-reporter');
 
     public static getReportPath(): string {
-        let today = (new Date()).toISOString();
+        const today = (new Date()).toISOString();
         return join(ReportEventContentProvider.basicPath, `${today}.report`);
     }
 
     public provideTextDocumentContent(uri: vscode.Uri, token: vscode.CancellationToken): vscode.ProviderResult<string> {
-        return ['Recently:', '*', 'Next', '*', 'End'].join('\n')
+        return ['Recently:', '*', 'Next', '*', 'End'].join('\n');
     }
-
-
 }
