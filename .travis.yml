@@ -14,7 +14,7 @@ install:
 script:
 - yarn lint:editorconfig
 - yarn lint:ts
-- npm test --silent
+- yarn test --silent
 after_script:
 - vsce package
 after_success:

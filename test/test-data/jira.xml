@@ -1,0 +1,68 @@
+<feed xmlns="http://www.w3.org/2005/Atom"
+    xmlns:atlassian="http://streams.atlassian.com/syndication/general/1.0">
+    <id>https://jira.atlassian.com/activity?maxResults=10&amp;streams=user+IS+jdoe</id>
+    <link href="https://jira.atlassian.com/activity?maxResults=10&amp;streams=user+IS+jdoe" rel="self" />
+    <title type="text">Activity Streams</title>
+    <atlassian:timezone-offset>+0100</atlassian:timezone-offset>
+    <updated>2018-10-21T20:55:24.492Z</updated>
+    <entry xmlns:activity="http://activitystrea.ms/spec/1.0/">
+        <id>urn:uuid:00000000-0000-0000-0000-000000000000</id>
+        <title type="html">&lt;a href="/secure/ViewProfile.jspa?name=jdoe" class="activity-item-user activity-item-author">Jon Doe&lt;/a> changed the status to Merged on       &lt;a href="/browse/TASK-0000">&lt;span class='resolved-link'>TASK-0000&lt;/span> - Task &lt;/a>
+        </title>
+        <author xmlns:usr="http://streams.atlassian.com/syndication/username/1.0">
+            <name>John Doe</name>
+            <email>jdoe@example.com</email>
+            <uri>/secure/ViewProfile.jspa?name=jdoe</uri>
+            <link xmlns:media="http://purl.org/syndication/atommedia" rel="photo" href="https://jira.atlassian.com/secure/useravatar?avatarId=00000&amp;s=16" media:height="16" media:width="16" />
+            <link xmlns:media="http://purl.org/syndication/atommedia" rel="photo" href="https://jira.atlassian.com/secure/useravatar?avatarId=00000&amp;s=48" media:height="48" media:width="48" />
+            <usr:username>jdoe</usr:username>
+            <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
+        </author>
+        <published>2018-10-02T14:49:40.926Z</published>
+        <updated>2018-10-02T14:49:40.926Z</updated>
+        <category term="Merged" />
+        <link href="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=00000&amp;avatarType=issuetype" rel="http://streams.atlassian.com/syndication/icon" title="Improvement" />
+        <link href="https://jira.atlassian.com/s/adadad/00000/00000000000000000000000000000000/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css" rel="http://streams.atlassian.com/syndication/css" />
+        <generator uri="" />
+        <atlassian:application>com.atlassian.jira</atlassian:application>
+        <activity:verb>http://activitystrea.ms/schema/1.0/update</activity:verb>
+        <activity:verb>http://streams.atlassian.com/syndication/verbs/jira/transition</activity:verb>
+        <activity:object>
+            <id>urn:uuid:00000000-0000-0000-0000-000000000000</id>
+            <title type="text">TASK-0000</title>
+            <summary type="text">Task summary</summary>
+            <activity:object-type>http://streams.atlassian.com/syndication/types/issue</activity:object-type>
+        </activity:object>
+        <atlassian:timezone-offset>+0100</atlassian:timezone-offset>
+    </entry>
+    <entry xmlns:activity="http://activitystrea.ms/spec/1.0/">
+        <id>urn:uuid:00000000-0000-0000-0000-000000000000</id>
+        <title type="html">&lt;a href="/secure/ViewProfile.jspa?name=jdoe" class="activity-item-user activity-item-author">Jon Doe&lt;/a> changed the status to Merged on       &lt;a href="/browse/TASK-0000">&lt;span class='resolved-link'>TASK-0000&lt;/span> - Task &lt;/a>
+        </title>
+        <author xmlns:usr="http://streams.atlassian.com/syndication/username/1.0">
+            <name>John Doe</name>
+            <email>jdoe@example.com</email>
+            <uri>/secure/ViewProfile.jspa?name=jdoe</uri>
+            <link xmlns:media="http://purl.org/syndication/atommedia" rel="photo" href="https://jira.atlassian.com/secure/useravatar?avatarId=00000&amp;s=16" media:height="16" media:width="16" />
+            <link xmlns:media="http://purl.org/syndication/atommedia" rel="photo" href="https://jira.atlassian.com/secure/useravatar?avatarId=00000&amp;s=48" media:height="48" media:width="48" />
+            <usr:username>jdoe</usr:username>
+            <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
+        </author>
+        <published>2018-10-02T14:49:40.926Z</published>
+        <updated>2018-10-02T14:49:40.926Z</updated>
+        <category term="Merged" />
+        <link href="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=00000&amp;avatarType=issuetype" rel="http://streams.atlassian.com/syndication/icon" title="Improvement" />
+        <link href="https://jira.atlassian.com/s/adadad/00000/00000000000000000000000000000000/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css" rel="http://streams.atlassian.com/syndication/css" />
+        <generator uri="" />
+        <atlassian:application>com.atlassian.jira</atlassian:application>
+        <activity:verb>http://activitystrea.ms/schema/1.0/update</activity:verb>
+        <activity:verb>http://streams.atlassian.com/syndication/verbs/jira/transition</activity:verb>
+        <activity:object>
+            <id>urn:uuid:00000000-0000-0000-0000-000000000000</id>
+            <title type="text">TASK-0000</title>
+            <summary type="text">Task summary</summary>
+            <activity:object-type>http://streams.atlassian.com/syndication/types/issue</activity:object-type>
+        </activity:object>
+        <atlassian:timezone-offset>+0100</atlassian:timezone-offset>
+    </entry>
+</feed>
