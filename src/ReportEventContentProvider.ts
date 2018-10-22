@@ -1,5 +1,4 @@
 import { Event, TextDocumentContentProvider, Uri, CancellationToken, ProviderResult } from 'vscode';
-import { join } from 'path';
 
 export class ReportEventContentProvider implements TextDocumentContentProvider {
     public onDidChange?: Event<Uri> | undefined;
