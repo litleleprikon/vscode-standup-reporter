@@ -3,7 +3,7 @@
 import { dayBefore } from '../src/utils';
 import { assert } from 'chai';
 
-suite('dayBefore test', () => {
+suite('dayBefore', () => {
 
     // Defines a Mocha unit test
     test('Start of epoch', () => {
